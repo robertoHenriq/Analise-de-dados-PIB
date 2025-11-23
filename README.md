@@ -6,6 +6,7 @@ O objetivo é fornecer uma base de dados tratada pronta para análise e visualiz
 ## Estrutura do Repositório
 
 AnlisePIB/
+
 ├── src/
 
 │ ├── ingest/
@@ -81,6 +82,7 @@ export BILLING_ID="seu-projeto-gcp"
 
 
 python -m src.processing.run
+
 
 
 

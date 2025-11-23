@@ -1,6 +1,7 @@
 # Análise de Dados do PIB Municipal
 
 Este projeto implementa um pipeline de ETL para coleta, transformação e armazenamento de dados do Produto Interno Bruto (PIB) por município no Brasil, utilizando os dados da Base dos Dados via Google BigQuery.  
+
 O objetivo é fornecer uma base de dados tratada pronta para análise e visualização.
 
 ## Estrutura do Repositório
@@ -82,6 +83,7 @@ export BILLING_ID="seu-projeto-gcp"
 
 
 python -m src.processing.run
+
 
 
 

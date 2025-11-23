@@ -7,21 +7,37 @@ O objetivo é fornecer uma base de dados tratada pronta para análise e visualiz
 
 AnlisePIB/
 ├── src/
+
 │ ├── ingest/
+
 │ │ └── fetcher.py
+
 │ ├── processing/
+
 │ │ ├── run.py
+
 │ │ ├── processing.py
+
 │ │ ├── clean.py
+
 │ │ ├── metrics.py
+
 │ │ └── logging_utils.py
+
 │ ├── storage/
+
 │ │ └── storage.py
+
 │ ├── queries/
+
 │ │ └── queries.py
+
 │ └── config.py
+
 ├── data/
+
 ├── requirements.txt
+
 └── README.md
 
 
@@ -65,5 +81,6 @@ export BILLING_ID="seu-projeto-gcp"
 
 
 python -m src.processing.run
+
 
 

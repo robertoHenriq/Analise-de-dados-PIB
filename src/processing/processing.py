@@ -2,7 +2,7 @@
 
 from .clean import clean_dataframe
 from .metrics import collect_step_metrics, export_metrics_json
-from .logging_utils import setup_logging
+from .logging import setup_logging
 
 logger = setup_logging()
     

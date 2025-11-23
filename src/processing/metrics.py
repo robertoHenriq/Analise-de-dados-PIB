@@ -56,3 +56,50 @@ def export_metrics_json(metrics: Dict[str, Any], output_path: str = "metrics/met
         json.dump(metrics, f, indent=4, ensure_ascii=False)
 
     return str(p)
+
+
+    
+def collect_step_metrics(step: str, df_in: pd.DataFrame, df_out: pd.DataFrame) -> Dict[str, Any]:
+    """
+    Coleta métricas para uma etapa de ETL (extract, transform, load).
+    Retorna um dicionário com:
+      - nome da etapa (step)
+      - número de linhas antes (rows_in) e depois (rows_out)
+      - quantos duplicados foram removidos
+      - porcentagem de valores ausentes (missing) antes e depois
+    """
+    rows_in = len(df_in)
+    rows_out = len(df_out)
+
+    # Contar duplicados: número de linhas duplicadas no df_in
+    # A ideia é comparar len(df_in) com len(df_in.drop_duplicates())
+    duplicates_removed = rows_in - len(df_in.drop_duplicates())
+
+    # Porcentagem de missing (média sobre todas as colunas)
+    missing_before_pct = float(df_in.isna().mean().mean()) * 100
+    missing_after_pct = float(df_out.isna().mean().mean()) * 100
+
+    metrics = {
+        "step": step,
+        "rows_in": rows_in,
+        "rows_out": rows_out,
+        "duplicates_removed": duplicates_removed,
+        "missing_before_pct": round(missing_before_pct, 2),
+        "missing_after_pct": round(missing_after_pct, 2),
+    }
+
+    return metrics
+
+
+def export_metrics_json(metrics: Dict[str, Any], output_path: str = "metrics/metrics.json") -> str:
+    """
+    Exporta um dicionário de métricas para um arquivo JSON.
+    Retorna o caminho onde salvou.
+    """
+    p = Path(output_path)
+    p.parent.mkdir(parents=True, exist_ok=True)
+
+    with open(p, "w", encoding="utf-8") as f:
+        json.dump(metrics, f, indent=4, ensure_ascii=False)
+
+    return str(p)

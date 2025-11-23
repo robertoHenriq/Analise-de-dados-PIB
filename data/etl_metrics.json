@@ -1,0 +1,26 @@
+{
+    "extract": {
+        "step": "extract",
+        "rows_in": 111400,
+        "rows_out": 111400,
+        "duplicates_removed": 0,
+        "missing_before_pct": 0.05,
+        "missing_after_pct": 0.05
+    },
+    "transform": {
+        "step": "transform",
+        "rows_in": 111400,
+        "rows_out": 111400,
+        "duplicates_removed": 0,
+        "missing_before_pct": 0.05,
+        "missing_after_pct": 0.05
+    },
+    "load": {
+        "step": "load",
+        "rows_in": 111400,
+        "rows_out": 111400,
+        "duplicates_removed": 0,
+        "missing_before_pct": 0.05,
+        "missing_after_pct": 0.05
+    }
+}
